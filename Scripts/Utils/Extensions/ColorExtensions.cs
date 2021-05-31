@@ -10,6 +10,12 @@ namespace HoodedCrow.uCore.Utils
             return color;
         }
 
+        public static Color SetGreen(this Color color, float value)
+        {
+            color.g = value;
+            return color;
+        }
+
         public static Color SetAlpha(this Color color, float value)
         {
             color.a = value;
