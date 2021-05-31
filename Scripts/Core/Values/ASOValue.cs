@@ -4,5 +4,11 @@ namespace HoodedCrow.uCore.Core
 
     public abstract class ASOValue<T>: ScriptableObject
     {
+        [SerializeField] private T _value;
+
+        public T GetValue()
+        {
+            return _value;
+        }
     }
 }
