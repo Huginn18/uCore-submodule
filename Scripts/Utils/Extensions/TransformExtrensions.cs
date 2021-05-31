@@ -37,5 +37,26 @@ namespace HoodedCrow.uCore.Utils
 
             return component;
         }
+
+        public static T FindChildWithComponent<T>(this Transform transform) where T : MonoBehaviour
+        {
+            T component = null;
+            List<Transform> children = transform.GetChildren();
+            foreach (Transform child in children)
+            {
+                component = child.GetComponent<T>();
+                if (component != null)
+                {
+                    break;
+                }
+            }
+
+            if (component is null)
+            {
+                throw new NoChildrenWithComponentException($"Cannot find child with component: {typeof(T).Name} not found");
+            }
+
+            return component;
+        }
     }
 }
