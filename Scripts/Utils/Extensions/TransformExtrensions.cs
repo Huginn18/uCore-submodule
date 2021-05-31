@@ -82,5 +82,15 @@ namespace HoodedCrow.uCore.Utils
 
             return components;
         }
+
+        public static void DestroyChildren(this Transform transform)
+        {
+            List<Transform> children = transform.GetChildren();
+            foreach (Transform child in children)
+            {
+                child.gameObject.SetActive(false);
+                MonoBehaviour.Destroy(child.gameObject);
+            }
+        }
     }
 }
