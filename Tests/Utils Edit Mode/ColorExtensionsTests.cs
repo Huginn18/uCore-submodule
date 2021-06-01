@@ -24,5 +24,25 @@ namespace Scripts.Utils.Tests
                 Assert.AreEqual(0.25f, color.r);
             }
         }
+
+        public class _SetBlue_
+        {
+            [Test]
+            public void _SetBlueFrom0To1_()
+            {
+                Color color = Color.clear;
+                color = color.SetBlue(1);
+                Assert.AreEqual(1, color.b);
+            }
+
+            [Test]
+            public void _SetBlueFrom1To025_()
+            {
+                Color color = Color.blue;
+                color = color.SetBlue(0.25f);
+                Assert.AreEqual(0.25f, color.b);
+            }
+        }
+
     }
 }
