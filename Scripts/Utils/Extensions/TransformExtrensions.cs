@@ -33,6 +33,8 @@ namespace HoodedCrow.uCore.Utils
                 {
                     break;
                 }
+
+                transform = t;
             }
 
             return component;
@@ -89,6 +91,7 @@ namespace HoodedCrow.uCore.Utils
             foreach (Transform child in children)
             {
                 child.gameObject.SetActive(false);
+                child.transform.SetParent(null);
                 MonoBehaviour.Destroy(child.gameObject);
             }
         }
