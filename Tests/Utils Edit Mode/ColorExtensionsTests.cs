@@ -62,5 +62,33 @@ namespace Scripts.Utils.Tests
                 Assert.AreEqual(0.25f, color.g);
             }
         }
+
+        public class _MagentaTest_
+        {
+            [Test]
+            public void _SetMagentaFromClear_()
+            {
+                Color color = Color.clear;
+
+                color = color.SetRed(1);
+                color = color.SetGreen(0);
+                color = color.SetBlue(1);
+                color = color.SetAlpha(1);
+
+                Assert.AreEqual(Color.magenta, color);
+            }
+            [Test]
+            public void _SetClearFromMagenta_()
+            {
+                Color color = Color.magenta;
+
+                color = color.SetRed(0);
+                color = color.SetGreen(0);
+                color = color.SetBlue(0);
+                color = color.SetAlpha(0);
+
+                Assert.AreEqual(Color.clear, color);
+            }
+        }
     }
 }
