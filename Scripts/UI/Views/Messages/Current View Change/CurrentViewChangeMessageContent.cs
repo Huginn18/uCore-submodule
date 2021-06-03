@@ -4,10 +4,10 @@ namespace HoodedCrow.uCore.UI
 
     public struct CurrentViewChangeMessageContent: IMessageContent
     {
-        public AView PreviousView;
-        public AView CurrentView;
+        public IView PreviousView;
+        public IView CurrentView;
 
-        public CurrentViewChangeMessageContent(AView previousView, AView currentView)
+        public CurrentViewChangeMessageContent(IView previousView, IView currentView)
         {
             PreviousView = previousView;
             CurrentView = currentView;

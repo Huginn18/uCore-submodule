@@ -1,7 +1,10 @@
 namespace HoodedCrow.uCore.UI
 {
-    public class AAdditiveView: AView, IAdditive
+    public abstract class AAdditiveView: AView, IAdditive
     {
-
+        public override void Initialize(IViewsController<IView> viewsController)
+        {
+            base.Initialize(viewsController);
+        }
     }
 }

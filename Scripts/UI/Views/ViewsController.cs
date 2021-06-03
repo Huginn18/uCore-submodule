@@ -6,18 +6,18 @@ namespace HoodedCrow.uCore.UI
     using HoodedCrow.uCore.Core;
     using UnityEngine;
 
-    public class ViewsController: MonoBehaviour, IViewsController<AView>
+    public class ViewsController: MonoBehaviour, IViewsController<IView>
     {
-        public AView CurrentView => _currentView.GetValue();
+        public IView CurrentView => _currentView.GetValue();
 
 
-        private Value<AView> _currentView;
+        private Value<IView> _currentView = new Value<IView>();
 
         [SerializeField] private AView _defaultView;
         [SerializeField] private List<AView> _views;
 
-        private Dictionary<Type, AView> _viewsCollection;
-        private Dictionary<Type, AView> _additiveViewsCollection;
+        private Dictionary<Type, AView> _viewsCollection = new Dictionary<Type, AView>();
+        private Dictionary<Type, AView> _additiveViewsCollection = new Dictionary<Type, AView>();
 
         [Header("Messages - Sends")]
         [SerializeField] private CurrentViewSetMessage _currentViewSetMessage;
@@ -34,22 +34,27 @@ namespace HoodedCrow.uCore.UI
             foreach (AView view in _views)
             {
                 _viewsCollection[view.GetType()] = view;
-                view.Initialize((IViewsController<IView>) this);
+                view.Initialize(this);
             }
         }
 
         private void Start()
         {
-            Show(_defaultView);
+            ShowDefaultView();
         }
 
+
+        public void ShowDefaultView()
+        {
+            Show(_defaultView);
+        }
 
         public void Show<TView>()
         {
             ShowView(typeof(TView));
         }
 
-        public void Show(AView view)
+        public void Show(IView view)
         {
             ShowView(view.GetType());
         }
@@ -65,7 +70,7 @@ namespace HoodedCrow.uCore.UI
             HideView(typeof(TView));
         }
 
-        public void Hide(AView view)
+        public void Hide(IView view)
         {
             HideView(view.GetType());
         }
@@ -105,11 +110,12 @@ namespace HoodedCrow.uCore.UI
                 return;
             }
 
-            if (_currentView == null)
+            if (_currentView.GetValue() == null)
             {
                 view.Show();
                 _currentView.UpdateValue(view);
                 _currentViewChangeMessage.Send(new CurrentViewChangeMessageContent(null, view));
+                return;
             }
 
             HandleCurrentViewChange(view);
@@ -117,7 +123,7 @@ namespace HoodedCrow.uCore.UI
 
         private void HandleCurrentViewChange(AView view)
         {
-            AView previousView = _currentView.GetValue();
+            IView previousView = _currentView.GetValue();
             previousView.Hide();
             _currentView.SetValue(null);
             _currentViewHiddenMessage.Send(new CurrentViewHiddenMessageContent(previousView));

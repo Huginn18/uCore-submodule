@@ -4,19 +4,35 @@ namespace HoodedCrow.uCore.UI
 
     public abstract class AView: MonoBehaviour, IView
     {
-        public void Initialize(IViewsController<IView> viewsController)
+        [SerializeField] private GameObject _contentContainer;
+        protected IViewsController<IView> _viewsController;
+
+        public virtual void Initialize(IViewsController<IView> viewsController)
         {
-            throw new System.NotImplementedException();
+            _viewsController = viewsController;
+            _contentContainer.SetActive(false);
         }
 
         public void Show()
         {
-            throw new System.NotImplementedException();
+            OnShowView();
+            _contentContainer.SetActive(true);
         }
 
         public void Hide()
         {
-            throw new System.NotImplementedException();
+            OnHideView();
+            _contentContainer.SetActive(false);
+        }
+
+        protected virtual void OnShowView()
+        {
+
+        }
+
+        protected virtual void OnHideView()
+        {
+
         }
     }
 }
