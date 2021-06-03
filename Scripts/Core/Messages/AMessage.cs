@@ -3,7 +3,7 @@ namespace HoodedCrow.uCore.Core
     using System;
     using UnityEngine;
 
-    public abstract class AMessage<TContent>: IMessage<TContent> where TContent: IMessageContent
+    public abstract class AMessage<TContent>: ScriptableObject, IMessage<TContent> where TContent: IMessageContent
     {
         private Action<TContent> _callback;
 
