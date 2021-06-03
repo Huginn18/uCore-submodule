@@ -4,6 +4,11 @@ namespace HoodedCrow.uCore.UI
 
     public struct AdditiveViewShowingMessageContent: IMessageContent
     {
+        public AView View;
 
+        public AdditiveViewShowingMessageContent(AView view)
+        {
+            View = view;
+        }
     }
 }

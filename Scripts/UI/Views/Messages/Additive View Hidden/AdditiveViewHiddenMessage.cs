@@ -4,6 +4,6 @@ namespace HoodedCrow.uCore.UI
 
     public class AdditiveViewHiddenMessage: AMessage<AdditiveViewHiddenMessageContent>
     {
-        
+
     }
 }

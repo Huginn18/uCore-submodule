@@ -1,8 +1,8 @@
 namespace HoodedCrow.uCore.UI
 {
-    public interface IVistaController<TVista> where TVista : IVista
+    public interface IViewsController<TVista> where TVista : IView
     {
-        public TVista CurrentVista { get; }
+        public TVista CurrentView { get; }
 
         public void Show<TVista>();
         public void Show(TVista vista);
