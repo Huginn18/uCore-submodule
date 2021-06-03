@@ -1,0 +1,16 @@
+{
+    "name": "uCoreUIEXAMPLE",
+    "rootNamespace": "",
+    "references": [
+        "GUID:966eacd00e4f40617a5ed2eeda7893e1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
