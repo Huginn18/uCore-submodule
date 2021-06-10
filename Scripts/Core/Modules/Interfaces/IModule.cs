@@ -2,7 +2,7 @@ namespace HoodedCrow.uCore.Core
 {
     public interface IModule
     {
-        void Initialize(IModuleManager moduleManager);
+        void Initialize(IModulesManager modulesManager);
         void Uninitialize();
     }
 }

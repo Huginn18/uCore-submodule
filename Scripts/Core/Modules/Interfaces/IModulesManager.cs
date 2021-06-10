@@ -1,6 +1,6 @@
 namespace HoodedCrow.uCore.Core
 {
-    public interface IModuleManager
+    public interface IModulesManager
     {
 
     }
