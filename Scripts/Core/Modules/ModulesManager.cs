@@ -18,6 +18,12 @@ namespace HoodedCrow.uCore.Core
             _unregisterModuleMessage.AddListener(OnUnregisterModuleMessage);
         }
 
+        private void OnDestroy()
+        {
+            _registerModuleMessage.Clear();
+            _unregisterModuleMessage.Clear();
+        }
+
         private void Update()
         {
             foreach (IModule module in _modules.Values)
@@ -65,7 +71,6 @@ namespace HoodedCrow.uCore.Core
             IModule module = _modules[moduleType];
             _modules.Remove(moduleType);
             module.Uninitialize();
-
         }
     }
 }
