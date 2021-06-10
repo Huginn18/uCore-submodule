@@ -2,7 +2,6 @@ namespace HoodedCrow.uCore.Core
 {
     using System;
     using UnityEngine;
-    using Object = System.Object;
 
     [Serializable]
     public class ObjectPoolElementSettings
