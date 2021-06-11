@@ -1,9 +1,9 @@
 namespace HoodedCrow.uCore.Core
 {
-    using System;
     using System.IO;
     using UnityEngine;
 
+    [CreateAssetMenu(menuName = "uCore/Core/Text Files Manager")]
     public class TextFilesManager: ScriptableObject, IFilesManager<string>
     {
         [SerializeField] private FilesManagerType _managerType;
