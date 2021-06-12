@@ -6,6 +6,8 @@ namespace HoodedCrow.uCore.Core
 
     public class ModulesManager : MonoBehaviour, IModulesManager
     {
+        [SerializeField] private SavablesManager _savablesManager;
+
         [Header("Messages - Listens")]
         [SerializeField] private RegisterModuleMessage _registerModuleMessage;
         [SerializeField] private UnregisterModuleMessage _unregisterModuleMessage;
@@ -57,6 +59,11 @@ namespace HoodedCrow.uCore.Core
             }
 
             _modules[moduleType] = content.Module;
+            if (content.Module is ISavable savable)
+            {
+                _savablesManager.RegisterSavable(savable);
+            }
+
             content.Module.Initialize(this);
         }
 
@@ -66,6 +73,11 @@ namespace HoodedCrow.uCore.Core
             if (!_modules.ContainsKey(moduleType))
             {
                 throw new UnknownModuleTypeException($"Cannot unregister module: {moduleType.Name} wasn't registered");
+            }
+
+            if (content.Module is ISavable savable)
+            {
+                _savablesManager.UnregisterSavable(savable);
             }
 
             IModule module = _modules[moduleType];
