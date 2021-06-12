@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Test Text Files Manager
   m_EditorClassIdentifier: 
   _managerType: 0
-  _path: 
+  _path: test
