@@ -1,8 +1,6 @@
 namespace HoodedCrow.uCore.Utils.Versioning
 {
-    using System;
     using TMPro;
-    using UnityEditor;
     using UnityEngine;
 
     [RequireComponent(typeof(TextMeshProUGUI)), DisallowMultipleComponent]

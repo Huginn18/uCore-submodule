@@ -1,9 +1,6 @@
 namespace HoodedCrow.uCore.Utils.Versioning.Editor
 {
-    using System.Text;
-    using NUnit.Framework;
     using UnityEditor;
-    using UnityEngine;
 
     public class VersioningMenuExtension
     {
