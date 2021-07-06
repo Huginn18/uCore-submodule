@@ -1,0 +1,18 @@
+{
+    "name": "uCore.Utils.Veriosning.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:966eacd00e4f40617a5ed2eeda7893e1"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
